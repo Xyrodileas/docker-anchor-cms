@@ -16,6 +16,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 # Let's be up to date
 RUN apt-get update
 RUN apt-get install -y software-properties-common
+
+# Let's install the PHP modules required by Anchor
 RUN apt-get install -y php-fpm
 RUN apt-get install -y php-gd
 RUN apt-get install -y php-mysql
@@ -29,7 +31,7 @@ RUN update-rc.d -f nginx remove
 ## Ok let's download and extract the source code of Anchor CMS
 RUN apt-get install -y curl
 RUN apt-get install -y unzip
-RUN curl -L https://github.com/anchorcms/anchor-cms/archive/0.10-dev.zip -o anchorcms.zip
+RUN curl -L https://github.com/anchorcms/anchor-cms/releases/download/0.12.7/anchor-cms-0.12.7-bundled.zip -o anchorcms.zip
 RUN unzip anchorcms.zip -d /var/www/ \
     && mv /var/www/anchor-* /var/www/anchor \
     && rm anchorcms.zip && chown -R www-data:www-data /var/www/anchor

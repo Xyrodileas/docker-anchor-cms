@@ -41,7 +41,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Let's configure PHP-FPM
-RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
+RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php/7.0/fpm/php.ini
 
 # Let's setup our nginx "Virtual Host"
 COPY ./volumes/nginx/sites-available/anchor /etc/nginx/sites-available/anchor

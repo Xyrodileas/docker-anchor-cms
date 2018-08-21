@@ -12,8 +12,8 @@ echo "Chmodding Anchor main directories..."
 chown -R www-data:www-data /var/www/anchor
 chmod -R 777 /var/www/anchor/anchor/config /var/www/anchor/content
 
-echo "Starting PHP5-FPM daemon..."
-service php-fpm start
+echo "Starting PHP7-FPM daemon..."
+service php7.0-fpm start
 
 echo "Starting Anchor server container..."
 echo "Executing... $@ \n\n"

@@ -16,7 +16,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 # Let's be up to date
 RUN apt-get update
 RUN apt-get install -y software-properties-common
-RUN add-apt install -y php-fpm
+RUN apt-get install -y php-fpm
 RUN apt-get install -y php-gd
 RUN apt-get install -y php-mysql
 RUN apt-get install -y php-curl

@@ -23,7 +23,7 @@ RUN apt-get install -y php-gd
 RUN apt-get install -y php-mysql
 RUN apt-get install -y php-curl
 RUN apt-get install -y php-mcrypt
-run apt-get install -y mbstring
+run apt-get install -y php-mbstring
 
 # And finally let's install NGinx
 RUN apt-get install -y nginx

@@ -7,25 +7,17 @@
 # License: GPLv3
 #
 
-FROM ubuntu:14.04
-MAINTAINER Etienne Lafarge "etienne.lafarge_at_gmail.com"
+FROM ubuntu:16.04
+MAINTAINER Xyrodileas
 
 # Let's get rid of apt-get's interactive mode
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 # Let's be up to date
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt install php-{bcmath,bz2,intl,gd,mbstring,mcrypt,mysql,zip,fpm}
 
-# Let's install the PHP modules required by Anchor
-RUN apt-get install -y php5-gd
-RUN apt-get install -y php5-mysql
-RUN apt-get install -y php5-curl
-RUN apt-get install -y php5-mcrypt
-
-# Let's install the PHP5-FPM module for NGinx
-RUN apt-get install -y php5-fpm
 
 # And finally let's install NGinx
 RUN apt-get install -y nginx
